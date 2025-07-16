@@ -18,12 +18,7 @@ export default defineConfig(({ mode }) => ({
                 code: `${code}
 
 /* Added by Vite plugin inject-chef-dev */
-window.addEventListener('message', async (message) => {
-  if (message.source !== window.parent) return;
-  if (message.data.type !== 'chefPreviewRequest') return;
 
-  const worker = await import('https://chef.convex.dev/scripts/worker.bundled.mjs');
-  await worker.respondToMessage(message);
 });
             `,
                 map: null,
